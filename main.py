@@ -54,8 +54,6 @@ async def rag_inngest_pdf(ctx: inngest.Context):
 )
 
 async def rag_query_pdf_ai(ctx: inngest.Context):
-    client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
-
     def _search(question: str, top_k: int=5)-> RAGSearchResult:
         query_vec=embed_texts([question])[0]
         store=QdrantStorage()
@@ -76,6 +74,7 @@ async def rag_query_pdf_ai(ctx: inngest.Context):
     )
 
     # Gemini call
+    client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
     response = client.models.generate_content(
         model="gemini-flash-latest",
         contents=user_content
