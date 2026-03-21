@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+inngest
+python-dotenv
+google-genai
+llama-index
+qdrant-client
+streamlit
+requests
+pydantic
+sentence-transformers
