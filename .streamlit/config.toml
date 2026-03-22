@@ -1,4 +1,10 @@
 [server]
-headless = true
-enableCORS = false
 port = 8501
+enableXsrfProtection = true
+enableCORS = true
+
+[client]
+showErrorDetails = false
+
+[logger]
+level = "info"
